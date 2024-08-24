@@ -1,5 +1,6 @@
-import { Table, Column, Model, DataType } from "sequelize-typescript";
+import { Table, Column, Model, DataType, HasMany } from "sequelize-typescript";
 import { Optional } from "sequelize";
+import { Food } from "./food"; // Import the Food model
 
 interface UserAttributes {
   id: string;
@@ -40,4 +41,8 @@ export class User extends Model<UserAttributes, UserCreationAttributes> {
     allowNull: false,
   })
   password!: string;
+
+  // Define the association with the Food model
+  @HasMany(() => Food)
+  foods!: Food[];
 }
