@@ -1,6 +1,8 @@
 import { Table, Column, Model, DataType, HasMany } from "sequelize-typescript";
 import { Optional } from "sequelize";
-import { Food } from "./food"; // Import the Food model
+import { Food } from "./food";
+import { Supply } from "./supply";
+import { Furniture } from "./furniture";
 
 interface UserAttributes {
   id: string;
@@ -45,4 +47,10 @@ export class User extends Model<UserAttributes, UserCreationAttributes> {
   // Define the association with the Food model
   @HasMany(() => Food)
   foods!: Food[];
+
+  @HasMany(()=>Supply)
+  supplies!: Supply[];
+
+  @HasMany(()=>Furniture)
+  furnitures!: Furniture[];
 }

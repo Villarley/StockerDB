@@ -1,6 +1,8 @@
 import express from "express";
 import userRoutes from "./routes/userRoutes";
 import foodRoutes from "./routes/foodRoutes"
+import supplyRoutes from "./routes/supplyRoutes"
+import furnitureRoutes from "./routes/furnitureRoutes"
 import { sequelize } from "./models";
 
 const app = express();
@@ -8,6 +10,9 @@ const app = express();
 app.use(express.json());
 app.use("/auth", userRoutes);
 app.use("/foods", foodRoutes);
+app.use("/supply", supplyRoutes);
+app.use("/furniture", furnitureRoutes);
+
 
 sequelize.sync({force:true})
   .then(() => {
