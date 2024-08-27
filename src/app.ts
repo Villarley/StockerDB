@@ -17,7 +17,7 @@ app.use("/supply", supplyRoutes);
 app.use("/furniture", furnitureRoutes);
 
 
-sequelize.sync({force:true})
+sequelize.sync()
   .then(() => {
     console.log("Database connected!");
   })

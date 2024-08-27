@@ -70,6 +70,8 @@ router.put("/:id", async (req, res) => {
 router.delete("/:id", async (req, res) => {
   try {
     const deleted = await foodService.deleteFood(req.params.id);
+    console.log(deleted);
+    
     if (deleted) {
       res.status(204).end();
     } else {
